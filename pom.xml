@@ -12,7 +12,7 @@
 	<artifactId>knowledge-base</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>knowledge-base</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Simple knowledge base study project</description>
 
 	<properties>
 		<java.version>1.8</java.version>
