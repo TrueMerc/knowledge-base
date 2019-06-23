@@ -89,9 +89,9 @@
 				<version>3.5.5</version>
 				<configuration>
 					<propertyFile>${project.build.outputDirectory}/liquibase-maven-plugin.properties</propertyFile>
-<!--					<systemProperties>-->
-<!--						<user.name>aleks_usharovskii</user.name>-->
-<!--					</systemProperties>-->
+					<systemProperties>
+						<user.name>true_merc</user.name>
+					</systemProperties>
 					<logging>info</logging>
 				</configuration>
 				<dependencies>
