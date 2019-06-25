@@ -1,5 +1,7 @@
 package ru.ryabtsev.knowledgebase.services.impl;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import ru.ryabtsev.knowledgebase.entities.User;
 import ru.ryabtsev.knowledgebase.services.UserService;
 
@@ -31,6 +33,11 @@ public class JpaUserService implements UserService {
 
     @Override
     public List<User> findAll() {
+        return null;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return null;
     }
 }

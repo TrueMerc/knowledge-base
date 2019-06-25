@@ -1,0 +1,116 @@
+databaseChangeLog:
+- changeSet:
+    id: 1561464077645-1
+    author: test_user (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: role_id
+        constraintName: UK_k2mq1ee4ob6uw649wgaus1ate
+        tableName: users_roles
+- changeSet:
+    id: 1561464077645-2
+    author: test_user (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: comments
+        constraintName: fk_article_id
+- changeSet:
+    id: 1561464077645-3
+    author: test_user (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: articles
+        constraintName: fk_author_id
+- changeSet:
+    id: 1561464077645-4
+    author: test_user (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: articles
+        constraintName: fk_category_id
+- changeSet:
+    id: 1561464077645-5
+    author: test_user (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: comments
+        constraintName: fk_commentator_id
+- changeSet:
+    id: 1561464077645-6
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: articles_UNIQUE
+        tableName: articles
+- changeSet:
+    id: 1561464077645-7
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: id_UNIQUE
+        tableName: categories
+- changeSet:
+    id: 1561464077645-8
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: id_UNIQUE
+        tableName: comments
+- changeSet:
+    id: 1561464077645-9
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: id_UNIQUE
+        tableName: roles
+- changeSet:
+    id: 1561464077645-10
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: id_UNIQUE
+        tableName: users
+- changeSet:
+    id: 1561464077645-11
+    author: test_user (generated)
+    changes:
+    - dropTable:
+        tableName: articles
+- changeSet:
+    id: 1561464077645-12
+    author: test_user (generated)
+    changes:
+    - dropTable:
+        tableName: categories
+- changeSet:
+    id: 1561464077645-13
+    author: test_user (generated)
+    changes:
+    - dropTable:
+        tableName: comments
+- changeSet:
+    id: 1561464077645-14
+    author: test_user (generated)
+    changes:
+    - dropPrimaryKey:
+        constraintName: PRIMARY
+        tableName: users_roles
+- changeSet:
+    id: 1561464077645-15
+    author: test_user (generated)
+    changes:
+    - dropColumn:
+        columnName: password
+        tableName: users
+- changeSet:
+    id: 1561464077645-16
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: UK_k2mq1ee4ob6uw649wgaus1ate
+        tableName: users_roles
+    - addUniqueConstraint:
+        columnNames: role_id
+        constraintName: UK_k2mq1ee4ob6uw649wgaus1ate
+        tableName: users_roles
+

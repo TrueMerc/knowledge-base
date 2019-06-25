@@ -1,5 +1,6 @@
 package ru.ryabtsev.knowledgebase.services;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
 import ru.ryabtsev.knowledgebase.entities.User;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 /**
  * Provides interface for users management service.
  */
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
     User findById(Long id);
 
