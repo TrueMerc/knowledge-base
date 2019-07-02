@@ -1,0 +1,149 @@
+databaseChangeLog:
+- changeSet:
+    id: 1562058801124-1
+    author: test_user (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: role_id
+        constraintName: UK_k2mq1ee4ob6uw649wgaus1ate
+        tableName: users_roles
+- changeSet:
+    id: 1562058801124-2
+    author: test_user (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: comments
+        constraintName: fk_article_id
+- changeSet:
+    id: 1562058801124-3
+    author: test_user (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: articles
+        constraintName: fk_author_id
+- changeSet:
+    id: 1562058801124-4
+    author: test_user (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: articles
+        constraintName: fk_category_id
+- changeSet:
+    id: 1562058801124-5
+    author: test_user (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: comments
+        constraintName: fk_commentator_id
+- changeSet:
+    id: 1562058801124-6
+    author: test_user (generated)
+    changes:
+    - dropForeignKeyConstraint:
+        baseTableName: files_data
+        constraintName: fk_file_id
+- changeSet:
+    id: 1562058801124-7
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: articles_UNIQUE
+        tableName: articles
+- changeSet:
+    id: 1562058801124-8
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: files_data_UNIQUE
+        tableName: files_data
+- changeSet:
+    id: 1562058801124-9
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: id_UNIQUE
+        tableName: categories
+- changeSet:
+    id: 1562058801124-10
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: id_UNIQUE
+        tableName: comments
+- changeSet:
+    id: 1562058801124-11
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: id_UNIQUE
+        tableName: files
+- changeSet:
+    id: 1562058801124-12
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: id_UNIQUE
+        tableName: roles
+- changeSet:
+    id: 1562058801124-13
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: id_UNIQUE
+        tableName: users
+- changeSet:
+    id: 1562058801124-14
+    author: test_user (generated)
+    changes:
+    - dropTable:
+        tableName: articles
+- changeSet:
+    id: 1562058801124-15
+    author: test_user (generated)
+    changes:
+    - dropTable:
+        tableName: categories
+- changeSet:
+    id: 1562058801124-16
+    author: test_user (generated)
+    changes:
+    - dropTable:
+        tableName: comments
+- changeSet:
+    id: 1562058801124-17
+    author: test_user (generated)
+    changes:
+    - dropTable:
+        tableName: files
+- changeSet:
+    id: 1562058801124-18
+    author: test_user (generated)
+    changes:
+    - dropTable:
+        tableName: files_data
+- changeSet:
+    id: 1562058801124-19
+    author: test_user (generated)
+    changes:
+    - dropPrimaryKey:
+        constraintName: PRIMARY
+        tableName: users_roles
+- changeSet:
+    id: 1562058801124-20
+    author: test_user (generated)
+    changes:
+    - dropColumn:
+        columnName: password
+        tableName: users
+- changeSet:
+    id: 1562058801124-21
+    author: test_user (generated)
+    changes:
+    - dropUniqueConstraint:
+        constraintName: UK_k2mq1ee4ob6uw649wgaus1ate
+        tableName: users_roles
+    - addUniqueConstraint:
+        columnNames: role_id
+        constraintName: UK_k2mq1ee4ob6uw649wgaus1ate
+        tableName: users_roles
+

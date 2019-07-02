@@ -1,4 +1,6 @@
 package ru.ryabtsev.knowledgebase.security;
 
-public class SecurityWebApplicationInitializer {
-}
+import org.springframework.stereotype.Component;
+
+@Component
+public class SecurityWebApplicationInitializer {}
