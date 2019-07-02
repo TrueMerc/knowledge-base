@@ -32,10 +32,10 @@
                     </div>
                 </li>
                 <li class="nav-item" th:classappend="${activeTab == 'Home' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/}">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" th:href="@{/}" th:text="#{navigation.button.home}"><span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item" th:classappend="${activeTab == 'StudentsList' ? 'active' : ''}">
-                    <a class="nav-link" th:href="@{/users/list}">Users List</a>
+                    <a class="nav-link" th:href="@{/users/list}" th:text="#{navigation.button.users-list}" />
                 </li>
                 <li sec:authorize="hasAnyRole('ADMIN','MANAGER')" class="nav-item">
                     <a class="nav-link" th:href="@{/articles/list}">Articles</a>
