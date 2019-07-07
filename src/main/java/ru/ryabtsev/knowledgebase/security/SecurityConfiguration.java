@@ -30,17 +30,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/").hasAnyRole("ADMIN, MODERATOR, USER")
                 .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/login*").permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/authenticateTheUser")
+                .defaultSuccessUrl("/index")
                 .permitAll()
                 .and()
                 .logout()
-                .logoutSuccessUrl("/")
-                .permitAll();
+                .logoutSuccessUrl("/");
     }
 
     @Bean
