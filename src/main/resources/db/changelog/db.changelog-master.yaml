@@ -1,5 +1,2 @@
 databaseChangeLog:
-  - preConditions:
-      - runningAs:
-          username: 'test_user'
-          password: '@Test123#'
+

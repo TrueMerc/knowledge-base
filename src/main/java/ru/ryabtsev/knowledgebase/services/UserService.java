@@ -1,6 +1,7 @@
 package ru.ryabtsev.knowledgebase.services;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.stereotype.Service;
 import ru.ryabtsev.knowledgebase.entities.User;
 
 import java.util.List;
