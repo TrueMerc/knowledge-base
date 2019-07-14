@@ -1,9 +1,13 @@
 package ru.ryabtsev.knowledgebase.services.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.ryabtsev.knowledgebase.entities.User;
+import ru.ryabtsev.knowledgebase.repositories.RoleRepository;
+import ru.ryabtsev.knowledgebase.repositories.UserRepository;
 import ru.ryabtsev.knowledgebase.services.UserService;
 
 import java.util.List;
@@ -13,23 +17,33 @@ import java.util.List;
  */
 @Service
 public class JpaUserService implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @Override
-    public User findById(Long id) {
-        return null;
+    public User findById(final Long id) {
+        return userRepository.findOneById(id);
     }
 
     @Override
-    public User findByLogin(String login) {
-        return null;
+    public User findByLogin(final String login) {
+        return userRepository.findOneByLogin(login);
     }
 
     @Override
-    public boolean save(User systemUser) {
+    public boolean save(final User systemUser) {
         return false;
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(final Long id) {
 
     }
 
@@ -39,7 +53,7 @@ public class JpaUserService implements UserService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(final String s) throws UsernameNotFoundException {
         return null;
     }
 }
