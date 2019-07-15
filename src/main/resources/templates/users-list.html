@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/js/main.js}"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/resources/css/main.css}"/>
+</head>
+
+<body>
+<div th:replace="~{navigation :: navi(UsersList)}" />
+
+<div class="container">
+    <h1>Users List</h1>
+    <table class="table">
+        <thead>
+        <tr class="thead-dark">
+            <td>Id</td>
+            <td>Login</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>E-mail</td>
+            <td>Phone</td>
+            <td sec:authorize="hasRole('ADMIN')">Actions</td>
+        </tr>
+        </thead>
+
+        <tr class="myTableRow responsive-row" th:each="user : ${usersList}" th:attr="entryIndex=${user.id}">
+            <td th:text="${user.id}"/>
+            <td th:text="${user.login}"/>
+            <td th:text="${user.firstName}"/>
+            <td th:text="${user.lastName}"/>
+            <td th:text="${user.email}"/>
+            <td th:text="${user.phone}"/>
+            <td sec:authorize="hasRole('ADMIN')">
+                <a class="btn btn-danger" th:href="'/users/remove/' + ${user.id}" role="button">Remove</a>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <div sec:authorize ="hasAnyRole('ADMIN', 'MANAGER')">
+        <form th:action="@{/students/addStudent}" method="GET" class="form-horizontal">
+            <button type="submit" class="btn btn-primary">Add user</button>
+        </form>
+        <br>
+    </div>
+    <a href="/">Back To Main Page</a>
+</div>
+</body>
+<footer>
+    <div th:insert="~{footer :: footer}"/>
+</footer>
+</html>

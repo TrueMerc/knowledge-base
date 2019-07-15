@@ -9,12 +9,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.ryabtsev.knowledgebase.entities.Role;
 import ru.ryabtsev.knowledgebase.entities.User;
+import ru.ryabtsev.knowledgebase.registration.UserRegistrationData;
 import ru.ryabtsev.knowledgebase.repositories.RoleRepository;
 import ru.ryabtsev.knowledgebase.repositories.UserRepository;
 import ru.ryabtsev.knowledgebase.services.UserService;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -35,6 +37,19 @@ public class JpaUserService implements UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+
+
+    @Override
+    public void delete(final Long id) {
+
+    }
+
+
+    @Override
+    public List<User> getAll() {
+        return (List<User>)userRepository.findAll();
+    }
+
     @Override
     public User findById(final Long id) {
         return userRepository.findOneById(id);
@@ -45,21 +60,30 @@ public class JpaUserService implements UserService {
         return userRepository.findOneByLogin(login);
     }
 
-
     @Override
-    public boolean save(final User systemUser) {
-        return false;
+    @Transactional
+    public boolean save(final UserRegistrationData data) {
+
+        User user = new User();
+        user.setLogin( data.getLogin() );
+        user.setPassword( data.getPassword() );
+        user.setFirstName( data.getFirstName() );
+        user.setLastName( data.getLastName() );
+        user.setEmail( data.getEmail() );
+        user.setPhone( data.getPhone() );
+
+        List<Role> roles = new LinkedList<>();
+        for(Long id : data.getRoleIds() ) {
+            roles.add( roleRepository.findOneById(id) );
+        }
+        user.setRoles( roles );
+
+        roleRepository.save(user);
+        return true;
     }
 
-    @Override
-    public void delete(final Long id) {
 
-    }
 
-    @Override
-    public List<User> findAll() {
-        return null;
-    }
 
     @Override
     @Transactional

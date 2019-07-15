@@ -1,8 +1,10 @@
 package ru.ryabtsev.knowledgebase.entities;
 
 import lombok.Data;
+import ru.ryabtsev.knowledgebase.registration.UserRegistrationData;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity

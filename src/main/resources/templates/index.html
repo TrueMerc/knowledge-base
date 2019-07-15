@@ -34,10 +34,6 @@
         <br>
         <a href="/articles/list">Articles list</a>
         <br>
-        <div sec:authorize="hasAnyRole('ADMIN','MODERATOR')">
-            <a href="/users/list">Watch users info</a>
-            <br>
-        </div>
         <div sec:authorize="hasRole('ADMIN')">
             <a href="/users/list">Manage users</a>
         </div>
