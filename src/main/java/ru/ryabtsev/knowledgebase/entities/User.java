@@ -18,6 +18,9 @@ public class User {
     @Column(name = "login", unique = true, nullable = false)
     private String login;
 
+    @Column(name = "password", nullable = false)
+    private String password;
+
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
