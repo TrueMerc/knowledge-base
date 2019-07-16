@@ -75,17 +75,18 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Webflow -->
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
-			<artifactId>org.springframework.js</artifactId>
-			<version>2.0.5.RELEASE</version>
+			<artifactId>spring-webflow</artifactId>
+			<version>2.5.1.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.webflow</groupId>
 			<artifactId>spring-js</artifactId>
 			<version>2.4.8.RELEASE</version>
 		</dependency>
-
 
 		<!-- Thymeleaf -->
 		<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring5 -->
