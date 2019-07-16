@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.ryabtsev.knowledgebase.entities.Role;
 import ru.ryabtsev.knowledgebase.entities.User;
-import ru.ryabtsev.knowledgebase.registration.UserRegistrationData;
+import ru.ryabtsev.knowledgebase.flows.user.registration.UserRegistrationData;
 import ru.ryabtsev.knowledgebase.repositories.RoleRepository;
 import ru.ryabtsev.knowledgebase.repositories.UserRepository;
 import ru.ryabtsev.knowledgebase.services.UserService;

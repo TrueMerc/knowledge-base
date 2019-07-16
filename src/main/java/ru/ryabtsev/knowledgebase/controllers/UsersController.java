@@ -26,4 +26,9 @@ public class UsersController {
         model.addAttribute("usersList", allUsers );
         return "users-list";
     }
+
+    @RequestMapping("/addUser")
+    public String addUser(final Model model) {
+        return "flows/user/registration-form";
+    }
 }

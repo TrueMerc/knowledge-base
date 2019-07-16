@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+    <var name="userRegistrationData" class="ru.ryabtsev.knowledgebase.flows.user.registration.UserRegistrationData" />
+
+    <on-start>
+        <evaluate expression="userRegistrationHandler.init()"
+                  result="flowScope.userRegistrationModel"/>
+    </on-start>
+    
+    <view-state id="registration" view="/templates/flows/user/registration-form.html" model="userRegistrationData">
+        <transition on="confirmation" to="validateUserRegistrationData"/>
+        <on-exit>
+            <evaluate expression="userRegistrationHandler.addUserRegistrationData(flowScope.userRegistrationModel, userRegistrationData)"/>
+        </on-exit>
+    </view-state>
+
+    <action-state id="validateUserRegistrationData">
+        <evaluate expression="userRegistrationHandler.validateUserRegistrationData(userRegistrationData, messageContext)"/>
+        <transition on="success" to="confirmation"/>
+    </action-state>
+    
+    <view-state id="confirmation" view="/templates/flows/user/registration-confirmation.html" model="userRegistrationData">
+        <transition on="cancel" to="registration"/>
+        <transition on="confirm" to="submit"/>
+    </view-state>
+    
+    <action-state id="submit">
+        <evaluate expression="userRegistrationHandler.saveAll(flowScope.userRegistrationModel, messageContext)"/>
+        <transition on="success" to="success"/>
+    </action-state>
+    
+    <end-state id="success" view="/templates/flows/user/registration-success.html"/>
+    <end-state id="home" view="externalRedirect:contextRelative:/" />
+
+    <!-- Global Transition -->
+    <global-transitions>
+        <transition on="home" to="home" validate="false" />
+    </global-transitions>
+
+</flow>

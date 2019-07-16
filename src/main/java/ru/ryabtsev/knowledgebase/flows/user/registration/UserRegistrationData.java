@@ -1,4 +1,4 @@
-package ru.ryabtsev.knowledgebase.registration;
+package ru.ryabtsev.knowledgebase.flows.user.registration;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,6 +8,7 @@ import ru.ryabtsev.knowledgebase.validation.ValidEmail;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -15,9 +16,8 @@ import java.util.List;
  */
 @Data
 @NoArgsConstructor
-//@EqualsAndHashCode(callSuper = true)
 @FieldMatch(first="password", second="matchingPassword", message="The passwords field must match.")
-public class UserRegistrationData  {
+public class UserRegistrationData implements Serializable {
 
     private static final String REQUIRED_FIELD_MESSAGE = "This field is required.";
     private static final int NAME_FIELD_MINIMAL_SIZE = 3;
@@ -53,4 +53,7 @@ public class UserRegistrationData  {
 
     @NotNull(message = "is required")
     private List<Long> roleIds;
+
+
+
 }

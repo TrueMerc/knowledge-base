@@ -36,7 +36,7 @@ public class UserRegistrationWebFlow extends AbstractFlowConfiguration {
     @Bean
     public FlowDefinitionRegistry flowRegistry() {
         return getFlowDefinitionRegistryBuilder()
-                .setBasePath("classpath:flows")
+                .setBasePath("classpath*:flows")
                 .addFlowLocationPattern("/**/*-flow.xml")
                 .setFlowBuilderServices(this.flowBuilderServices())
                 .build();
