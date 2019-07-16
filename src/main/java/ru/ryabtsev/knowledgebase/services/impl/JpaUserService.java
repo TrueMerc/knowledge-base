@@ -78,12 +78,9 @@ public class JpaUserService implements UserService {
         }
         user.setRoles( roles );
 
-        roleRepository.save(user);
+        userRepository.save(user);
         return true;
     }
-
-
-
 
     @Override
     @Transactional
