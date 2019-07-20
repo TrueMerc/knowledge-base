@@ -16,7 +16,7 @@
     <div th:replace="~{navigation :: navi(Home)}" />
 
     <div class="container">
-        <h1 th:text="#{welcome.message}"></h1>
+        <h1 th:utext="#{welcome.message(${#authentication.isAuthenticated() ? #authentication.getPrincipal().getUsername() : 'guest'})}"></h1>
 
         <div sec:authorize="isAuthenticated()">
             <div>
@@ -34,10 +34,6 @@
         <br>
         <a href="/articles/list">Articles list</a>
         <br>
-        <div sec:authorize="hasAnyRole('ADMIN','MODERATOR')">
-            <a href="/users/list">Watch users info</a>
-            <br>
-        </div>
         <div sec:authorize="hasRole('ADMIN')">
             <a href="/users/list">Manage users</a>
         </div>
