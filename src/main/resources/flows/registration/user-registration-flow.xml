@@ -10,7 +10,7 @@
                   result="flowScope.userRegistrationModel"/>
     </on-start>
     
-    <view-state id="registration" view="/templates/flows/user/registration-form.html" model="userRegistrationData">
+    <view-state id="registration" view="flows/user/registration-form.html" model="userRegistrationData">
         <transition on="confirmation" to="validateUserRegistrationData"/>
         <on-exit>
             <evaluate expression="userRegistrationHandler.addUserRegistrationData(flowScope.userRegistrationModel, userRegistrationData)"/>
@@ -22,7 +22,7 @@
         <transition on="success" to="confirmation"/>
     </action-state>
     
-    <view-state id="confirmation" view="/templates/flows/user/registration-confirmation.html" model="userRegistrationData">
+    <view-state id="confirmation" view="flows/user/registration-confirmation.html" model="userRegistrationData">
         <transition on="cancel" to="registration"/>
         <transition on="confirm" to="submit"/>
     </view-state>
@@ -32,7 +32,7 @@
         <transition on="success" to="success"/>
     </action-state>
     
-    <end-state id="success" view="/templates/flows/user/registration-success.html"/>
+    <end-state id="success" view="flows/user/registration-success.html"/>
     <end-state id="home" view="externalRedirect:contextRelative:/" />
 
     <!-- Global Transition -->
