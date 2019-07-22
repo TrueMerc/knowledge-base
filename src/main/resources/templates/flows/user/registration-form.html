@@ -30,8 +30,8 @@
             </div>
 
             <div style="padding-top: 30px" class="panel-body">
-                <form th:action="@{/users/processRegistrationForm}"
-                      th:object="${userRegistrationForm}"
+                <form th:action="@{'~' + ${flowExecutionUrl} + '&_eventId_personal'}"
+                      th:object="${userRegistrationData}"
                       method="post" class="form-horizontal">
 
                         <div class="form-group">
@@ -45,10 +45,10 @@
                         </div>
 
                     <!-- User name -->
-                    <div class="error" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" />
+                    <div class="error" th:if="${#fields.hasErrors('login')}" th:errors="*{login}" />
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input th:field="*{userName}" placeholder="username (*)" class="form-control"/>
+                        <input th:field="*{login}" placeholder="username (*)" class="form-control"/>
                     </div>
 
                     <!-- Password -->
