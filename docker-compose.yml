@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  knowledgebase-ui:
+    image: 'registry.heroku.com/knowledgebase-ui/web:latest'
+    environment:
+      - 'JDBC_DATABASE_URL=jdbc:mysql://host.docker.internal:3306/geek_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC'
+      - 'JDBC_DATABASE_USERNAME=test_user'
+      - 'JDBC_DATABASE_PASSWORD=@Test123#'
+      - 'HOST_NAME=knowledgebase-ui'
+    ports:
+      - '8081:8081'
