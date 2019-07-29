@@ -6,7 +6,7 @@ import ru.ryabtsev.knowledgebase.entities.Role;
 
 
 /**
- * Provides interface for repository which manipulates 'Role' entities.
+ * Provides interface for repository which manipulates 'Role' ru.ryabtsev.entities.
  */
 @Repository
 public interface RoleRepository extends CrudRepository<Role, Long> {
