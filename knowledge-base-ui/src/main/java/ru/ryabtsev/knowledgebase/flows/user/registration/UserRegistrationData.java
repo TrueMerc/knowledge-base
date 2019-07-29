@@ -1,7 +1,6 @@
 package ru.ryabtsev.knowledgebase.flows.user.registration;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import ru.ryabtsev.knowledgebase.validation.FieldMatch;
 import ru.ryabtsev.knowledgebase.validation.ValidEmail;

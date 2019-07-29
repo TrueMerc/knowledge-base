@@ -31,14 +31,4 @@ public class UsersController {
     public String addUser(final Model model) {
         return "redirect:/registration";
     }
-
-//    @PostMapping("/addUser")
-//    public String addUser(@Valid UserRegistrationData data, BindingResult result, RedirectAttributes attributes) {
-//        if( result.hasErrors()) {
-//            return "users-list";
-//        }
-//        attributes.addAttribute("login", data.getLogin());
-//
-//        return "redirect:/registration";
-//    }
 }

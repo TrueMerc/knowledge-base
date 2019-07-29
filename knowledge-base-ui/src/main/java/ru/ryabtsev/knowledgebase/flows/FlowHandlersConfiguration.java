@@ -9,7 +9,7 @@ import ru.ryabtsev.knowledgebase.services.UserService;
 @Configuration
 public class FlowHandlersConfiguration {
     @Bean
-    public UserRegistrationHandler userRegistrationHandler(UserService userService, RoleService roleService) {
+    public UserRegistrationHandler userRegistrationHandler(final UserService userService, final RoleService roleService) {
         return new UserRegistrationHandler(userService, roleService);
     }
 }

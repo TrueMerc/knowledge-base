@@ -1,10 +1,7 @@
 package ru.ryabtsev.knowledgebase.services;
 
-
-import ru.ryabtsev.knowledgebase.entities.Role;
-
-import java.util.Collection;
 import java.util.List;
+import ru.ryabtsev.knowledgebase.entities.Role;
 
 /**
  * Provides interface for service which manages user roles.

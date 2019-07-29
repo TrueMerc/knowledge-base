@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import ru.ryabtsev.knowledgebase.entities.Role;
 
+
 /**
  * Provides interface for repository which manipulates 'Role' entities.
  */
