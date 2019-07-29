@@ -53,7 +53,6 @@ public class UserRegistrationWebFlow extends AbstractFlowConfiguration {
                 .setViewFactoryCreator(this.mvcViewFactoryCreator()) // Important!
                 .setValidator(this.localValidatorFactoryBean).build();
     }
-    // ----------------------------------------------------------
 
     @Bean
     public FlowHandlerMapping flowHandlerMapping() {

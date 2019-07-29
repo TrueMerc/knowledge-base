@@ -8,8 +8,8 @@
 </head>
 
 <body>
-	<h2>User registered successfully!</h2>
+	<h2 th:text="#{user.registration.success-message}"></h2>
 	<hr>
-	<a th:href="@{/login}">Back to login page</a>
+	<a th:text="#{user.registration.back-to-user-list}" th:href="@{'~' + ${flowExecutionUrl} + '&_eventId_confirm'}"/>
 </body>
 </html>

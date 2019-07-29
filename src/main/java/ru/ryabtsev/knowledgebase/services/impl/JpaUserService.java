@@ -37,13 +37,10 @@ public class JpaUserService implements UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-
-
     @Override
     public void delete(final Long id) {
 
     }
-
 
     @Override
     public List<User> getAll() {
