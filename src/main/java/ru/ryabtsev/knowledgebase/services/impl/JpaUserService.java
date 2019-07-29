@@ -37,13 +37,10 @@ public class JpaUserService implements UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-
-
     @Override
     public void delete(final Long id) {
 
     }
-
 
     @Override
     public List<User> getAll() {
@@ -66,7 +63,7 @@ public class JpaUserService implements UserService {
 
         User user = new User();
         user.setLogin( data.getLogin() );
-        user.setPassword( data.getPassword() );
+        user.setPassword( passwordEncoder.encode(data.getPassword()) );
         user.setFirstName( data.getFirstName() );
         user.setLastName( data.getLastName() );
         user.setEmail( data.getEmail() );

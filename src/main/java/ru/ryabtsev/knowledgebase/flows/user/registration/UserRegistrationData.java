@@ -53,7 +53,4 @@ public class UserRegistrationData implements Serializable {
 
     @NotNull(message = "is required")
     private List<Long> roleIds;
-
-
-
 }

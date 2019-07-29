@@ -3,6 +3,7 @@ package ru.ryabtsev.knowledgebase.flows.user.registration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import ru.ryabtsev.knowledgebase.services.RoleService;
 import ru.ryabtsev.knowledgebase.services.UserService;
 
 public class UserRegistrationHandler {
@@ -11,18 +12,20 @@ public class UserRegistrationHandler {
     private static final String SUCCESS = "success";
 
     private final UserService userService;
+    private final RoleService roleService;
 
     @Autowired
-    public UserRegistrationHandler(UserService userService) {
+    public UserRegistrationHandler(final UserService userService, final RoleService roleService) {
         this.userService = userService;
+        this.roleService = roleService;
     }
 
     public UserRegistrationModel init() {
-        return new UserRegistrationModel();
+        return new UserRegistrationModel(roleService.getAllRoles());
     }
 
-    public void addUserRegistrationData(final UserRegistrationModel model, final UserRegistrationData data) {
-        model.setUserRegistrationData(data);
+    public void modelHook(final UserRegistrationModel model) {
+        final UserRegistrationModel m = model;;
     }
 
     public String validateUserRegistrationData(UserRegistrationData data, MessageContext error) {
