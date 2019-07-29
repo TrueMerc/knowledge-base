@@ -29,10 +29,9 @@
     
     <action-state id="submit">
         <evaluate expression="userRegistrationHandler.saveAll(flowScope.userRegistrationModel, messageContext)"/>
-        <transition on="success" to="success"/>
+        <transition on="success" to="home"/>
     </action-state>
     
-    <end-state id="success" view="flows/user/registration-success.html"/>
     <end-state id="home" view="externalRedirect:contextRelative:/" />
 
     <!-- Global Transition -->

@@ -63,7 +63,7 @@ public class JpaUserService implements UserService {
 
         User user = new User();
         user.setLogin( data.getLogin() );
-        user.setPassword( data.getPassword() );
+        user.setPassword( passwordEncoder.encode(data.getPassword()) );
         user.setFirstName( data.getFirstName() );
         user.setLastName( data.getLastName() );
         user.setEmail( data.getEmail() );

@@ -195,6 +195,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+
 			<plugin>
 				<groupId>com.spotify</groupId>
 				<artifactId>dockerfile-maven-plugin</artifactId>
@@ -216,7 +217,6 @@
 					</buildArgs>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 
