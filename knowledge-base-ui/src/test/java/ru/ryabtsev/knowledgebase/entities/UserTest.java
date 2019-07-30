@@ -1,7 +1,9 @@
 package ru.ryabtsev.knowledgebase.entities;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import ru.ryabtsev.knowledgebase.entities.user.AuthenticationData;
 import ru.ryabtsev.knowledgebase.entities.user.Contacts;
 import ru.ryabtsev.knowledgebase.entities.user.NameData;
@@ -9,6 +11,13 @@ import ru.ryabtsev.knowledgebase.entities.user.NameData;
 import java.util.Collections;
 
 public class UserTest {
+
+    private BCryptPasswordEncoder passwordEncoder;
+
+    @Before
+    public void init() {
+        passwordEncoder = new BCryptPasswordEncoder();
+    }
 
     @Test
     public void createUserTest() {
@@ -34,5 +43,13 @@ public class UserTest {
         Assert.assertEquals(user.getEmail(), email);
         Assert.assertEquals(user.getPhone(), phone);
         Assert.assertTrue(user.getRoles().contains(role));
+    }
+
+    @Test
+    public void passwordEncodingDecodingTest() {
+        final String password = "password";
+        final String encoded = passwordEncoder.encode(password);
+
+        Assert.assertEquals(encoded, passwordEncoder.encode(password));
     }
 }
