@@ -3,8 +3,6 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
-<!--    <var name="userRegistrationData" class="knowledgebase.flows.user.registration.UserRegistrationData" />-->
-
     <on-start>
         <evaluate expression="userRegistrationHandler.init()"
                   result="flowScope.userRegistrationModel"/>
@@ -12,9 +10,6 @@
     
     <view-state id="registration" view="flows/user/registration-form.html" model="userRegistrationModel">
         <transition on="confirmation" to="validateUserRegistrationData"/>
-        <on-exit>
-            <evaluate expression="userRegistrationHandler.modelHook(flowScope.userRegistrationModel)"/>
-        </on-exit>
     </view-state>
 
     <action-state id="validateUserRegistrationData">

@@ -9,6 +9,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.ryabtsev.knowledgebase.entities.Role;
 import ru.ryabtsev.knowledgebase.entities.User;
+import ru.ryabtsev.knowledgebase.entities.user.AuthenticationData;
+import ru.ryabtsev.knowledgebase.entities.user.Contacts;
+import ru.ryabtsev.knowledgebase.entities.user.NameData;
 import ru.ryabtsev.knowledgebase.flows.user.registration.UserRegistrationData;
 import ru.ryabtsev.knowledgebase.repositories.RoleRepository;
 import ru.ryabtsev.knowledgebase.repositories.UserRepository;
@@ -61,19 +64,17 @@ public class JpaUserService implements UserService {
     @Transactional
     public boolean save(final UserRegistrationData data) {
 
-        User user = new User();
-        user.setLogin( data.getLogin() );
-        user.setPassword( passwordEncoder.encode(data.getPassword()) );
-        user.setFirstName( data.getFirstName() );
-        user.setLastName( data.getLastName() );
-        user.setEmail( data.getEmail() );
-        user.setPhone( data.getPhone() );
-
         List<Role> roles = new LinkedList<>();
         for(Long id : data.getRoleIds() ) {
             roles.add( roleRepository.findOneById(id) );
         }
-        user.setRoles( roles );
+
+        User user = new User(
+                new AuthenticationData( data.getLogin(), passwordEncoder.encode(data.getPassword())),
+                new NameData( data.getFirstName(), data.getLastName() ),
+                new Contacts( data.getEmail(), data.getPhone() ),
+                roles
+        );
 
         userRepository.save(user);
         return true;

@@ -24,10 +24,6 @@ public class UserRegistrationHandler {
         return new UserRegistrationModel(roleService.getAllRoles());
     }
 
-    public void modelHook(final UserRegistrationModel model) {
-        final UserRegistrationModel m = model;;
-    }
-
     public String validateUserRegistrationData(UserRegistrationData data, MessageContext error) {
         if (!data.getPassword().equals(data.getMatchingPassword())) {
             error.addMessage(new MessageBuilder()
