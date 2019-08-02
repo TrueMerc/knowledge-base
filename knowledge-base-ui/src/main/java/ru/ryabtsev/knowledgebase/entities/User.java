@@ -1,9 +1,14 @@
 package ru.ryabtsev.knowledgebase.entities;
 
 import lombok.Data;
+import ru.ryabtsev.knowledgebase.entities.user.AuthenticationData;
+import ru.ryabtsev.knowledgebase.entities.user.Contacts;
+import ru.ryabtsev.knowledgebase.entities.user.NameData;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name="users")
@@ -41,4 +46,13 @@ public class User {
     )
     private List<Role> roles;
 
+    public User(AuthenticationData authenticationData, NameData nameData, Contacts contacts, Collection<Role> roles) {
+        this.login = authenticationData.getLogin();
+        this.password = authenticationData.getPassword();
+        this.firstName = nameData.getFirstName();
+        this.lastName = nameData.getLastName();
+        this.email = contacts.getEmail();
+        this.phone = contacts.getPhone();
+        this.roles = roles.stream().collect(Collectors.toList());
+    }
 }
