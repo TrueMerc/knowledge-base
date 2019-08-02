@@ -44,12 +44,4 @@ public class UserTest {
         Assert.assertEquals(user.getPhone(), phone);
         Assert.assertTrue(user.getRoles().contains(role));
     }
-
-    @Test
-    public void passwordEncodingDecodingTest() {
-        final String password = "password";
-        final String encoded = passwordEncoder.encode(password);
-
-        Assert.assertEquals(encoded, passwordEncoder.encode(password));
-    }
 }

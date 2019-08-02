@@ -46,22 +46,24 @@ public class UserRepositoryTest {
 
     @Test
     public void userAdditionTest() {
-//        final String login = "user1";
-//        final String password = "password";
-//        final String firstName = "Ivan";
-//        final String lastName = "Ivanov";
-//        final String email = "ivanov@example.com";
-//        final String phone = "+7-777-777-77-77";
-//        Role role = new Role("ROLE_ADMIN");
-//
-//        testEntityManager.persist(new User(
-//            new AuthenticationData( login, passwordEncoder.encode(password) ),
-//            new NameData( firstName, lastName ),
-//            new Contacts( email, phone ),
-//            Collections.nCopies(1, new Role("ROLE_ADMIN") )
-//        ));
-//
-//        User user = userRepository.findOneByLogin("admin");
-//        Assert.assertNotEquals(null, user);
+        final String login = "admin";
+        final String password = "password";
+        final String firstName = "Ivan";
+        final String lastName = "Ivanov";
+        final String email = "ivanov@example.com";
+        final String phone = "+7-777-777-77-77";
+        Role role = new Role("ROLE_ADMIN");
+
+        testEntityManager.persist(new User(
+            new AuthenticationData( login, passwordEncoder.encode(password) ),
+            new NameData( firstName, lastName ),
+            new Contacts( email, phone ),
+            Collections.nCopies(1, new Role("ROLE_ADMIN") )
+        ));
+
+        User user = userRepository.findOneByLogin("admin");
+        Assert.assertNotNull(user);
+        Assert.assertEquals(login, user.getLogin());
+        Assert.assertTrue( user.getRoles().contains(role) );
     }
 }
