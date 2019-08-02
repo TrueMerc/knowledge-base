@@ -16,7 +16,8 @@
     <div th:replace="~{navigation :: navi(Home)}" />
 
     <div class="container">
-        <h1 th:utext="#{welcome.message(${#authentication.isAuthenticated() ? #authentication.getPrincipal().getUsername() : 'guest'})}"></h1>
+        <h1  th:utext="#{welcome.message(${#authentication.isAuthenticated() ? #authentication.getPrincipal().getUsername() : 'guest'})}"></h1>
+        <div id="logged-in-username"
 
         <div sec:authorize="isAuthenticated()">
             <div>

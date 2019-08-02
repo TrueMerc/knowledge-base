@@ -59,7 +59,7 @@ public class LoginSteps {
 
     @Then("^user logged out$")
     public void userLoggedOut() {
-        webDriver.findElement(By.id("link-login"));
+        webDriver.findElement(By.id("btn-login"));
     }
 
     @After

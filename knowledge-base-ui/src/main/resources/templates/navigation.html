@@ -27,7 +27,7 @@
                     <div sec:authorize="isAuthenticated()">
                         <a class="nav-link align-content-center" th:href="@{/profile}">
                             <img src="./img/user_ico.png" width="32" height="32" class="d-inline-block align-top">
-                            <span sec:authentication="principal.username"/>
+                            <span id="logged-in-username" sec:authentication="principal.username"></span>
                          </a>
                     </div>
                 </li>
@@ -46,7 +46,7 @@
                 <li class="nav-item">
                     <div sec:authorize="isAuthenticated()">
                         <form th:action="@{/logout}" method="POST">
-                            <input type="submit" class="btn btn-danger" value="Logout"/>
+                            <input id="link-logout" type="submit" class="btn btn-danger" value="Logout"/>
                         </form>
                     </div>
                 </li>

@@ -23,9 +23,6 @@ public class DriverInitializer {
 
     public static WebDriver getDriver() {
         switch (getProperty("browser")) {
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                return new ChromeDriver();
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 return new FirefoxDriver();
