@@ -46,6 +46,8 @@ public class User {
     )
     private List<Role> roles;
 
+    public User() {}
+
     public User(AuthenticationData authenticationData, NameData nameData, Contacts contacts, Collection<Role> roles) {
         this.login = authenticationData.getLogin();
         this.password = authenticationData.getPassword();

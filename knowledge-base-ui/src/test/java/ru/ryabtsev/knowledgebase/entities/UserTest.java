@@ -27,13 +27,13 @@ public class UserTest {
         final String lastName = "Ivanov";
         final String email = "ivanov@example.com";
         final String phone = "+7-777-777-77-77";
-        Role role = new Role();
+        Role role = new Role("ROLE_ADMIN");
 
         User user = new User(
             new AuthenticationData( login, password ),
             new NameData( firstName, lastName ),
             new Contacts( email, phone ),
-            Collections.nCopies(1, role)
+            Collections.nCopies(1,  role )
         );
 
         Assert.assertEquals(user.getLogin(), login);
