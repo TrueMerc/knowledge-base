@@ -9,14 +9,14 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
 @AutoConfigureMockMvc
@@ -28,25 +28,19 @@ public class KnowledgeBaseApplicationTests {
 	private MockMvc mvc;
 
 	@Test
-	public void contextLoads() {
+	public void contextLoads() {}
+
+	@Test
+	public void testIndexToLoginPageRedirection() throws Exception {
+		mvc.perform(get("/").contentType(MediaType.TEXT_HTML))
+				.andExpect(status().is3xxRedirection())
+		.andExpect(redirectedUrl("http://localhost/login"));
 	}
 
+	@WithMockUser(value = "admin", password = "admin", roles={"ADMIN"})
 	@Test
 	public void testIndexPage() throws Exception {
 		mvc.perform(get("/").contentType(MediaType.TEXT_HTML))
-				.andExpect(status().isOk()); /* Redirection to login page: code 302 */
-	}
-
-	@Test
-	public void testLoginPage() throws Exception {
-		mvc.perform(get("/login").contentType(MediaType.TEXT_HTML))
 				.andExpect(status().isOk());
-	}
-
-	@Test
-	public void testUserListPage() throws Exception {
-		mvc.perform(get("/users/list").contentType(MediaType.TEXT_HTML))
-				.andExpect(status().isOk())
-				.andExpect(model().attributeExists("allUsers"));
 	}
 }

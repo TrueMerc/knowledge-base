@@ -26,4 +26,9 @@ public class Role {
     )
     private List<User> users;
 
+    public Role() {}
+
+    public Role(final String name) {
+        this.name = name;
+    }
 }
